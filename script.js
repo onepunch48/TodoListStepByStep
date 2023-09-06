@@ -16,8 +16,10 @@ function addTask() {
 }
 
 function deleteTask(event) {
-  const eventTarget = event.target;
-  console.log(eventTarget);
+  const eventTargetDelete = event.target;
+  if (eventTargetDelete.textContent === "Delete") {
+    eventTargetDelete.closest("li").remove();
+  }
 }
 
 AddTask.addEventListener("click", () => {
