@@ -45,3 +45,22 @@ ul {
 li {
   list-style-type: none;
 }
+
+
+.completed {
+  color: grey;
+  text-decoration: line-through;
+}
+
+.done {
+  background-color: green;
+
+}
+
+.undo {
+  background-color: blue;
+}
+
+.delete {
+  background-color: red;
+}

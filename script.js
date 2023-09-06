@@ -8,17 +8,19 @@ function addTask() {
   <li>
     <p>${Task.value}</p>
     <div>
-      <button>Done</button>
-      <button>Delete</button>
+      <button class="done">Done</button>
+      <button class="delete">Delete</button>
     </div>
   </li>`;
   Task.value = "";
 }
 
-function deleteTask(event) {
-  const eventTargetDelete = event.target;
-  if (eventTargetDelete.textContent === "Delete") {
-    eventTargetDelete.closest("li").remove();
+function deleteOrCompleteTask(event) {
+  const eventTarget = event.target;
+  if (event.target.textContent === "Done"  ) {
+    eventTarget.closest(".done").remove();
+  } else if (eventTarget.textContent === "Delete") {
+    eventTarget.closest("li").remove();
   }
 }
 
@@ -27,5 +29,7 @@ AddTask.addEventListener("click", () => {
 });
 
 TaskList.addEventListener("click", () => {
-  deleteTask(event);
+  deleteOrCompleteTask(event);
 });
+
+
