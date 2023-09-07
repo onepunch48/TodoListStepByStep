@@ -15,20 +15,26 @@ function addTask() {
   Task.value = "";
 }
 
+
+
 function deleteOrCompleteTask(event) {
   const eventTarget = event.target;
-  if (event.target.textContent === "Delete"  ) {
-    eventTarget.closest("li").remove();
-  } else if (eventTarget.textContent === "Done") {
+  if (event.target.classList == "done") {
     eventTarget.classList.remove("done");
     eventTarget.classList.add("undo");
     eventTarget.textContent = "Undo";
-  } else if (eventTarget.textContent === "Undo") {
+    eventTarget.closest("li").querySelector("p").classList.add("completed");
+  } else if (event.target.classList == "undo") {
     eventTarget.classList.remove("undo");
     eventTarget.classList.add("done");
     eventTarget.textContent = "Done";
+    eventTarget.closest("li > p").classList.remove("completed");
+
+  } else {
+    eventTarget.closest("li").remove();
   }
 }
+
 
 AddTask.addEventListener("click", () => {
   addTask();
