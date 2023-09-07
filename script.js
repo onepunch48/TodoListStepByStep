@@ -17,10 +17,12 @@ function addTask() {
 
 function deleteOrCompleteTask(event) {
   const eventTarget = event.target;
-  if (event.target.textContent === "Done"  ) {
-    eventTarget.closest(".done").remove();
-  } else if (eventTarget.textContent === "Delete") {
+  if (event.target.textContent === "Delete"  ) {
     eventTarget.closest("li").remove();
+  } else if (eventTarget.textContent === "Done") {
+    eventTarget.classList.remove("done");
+    eventTarget.classList.add("undo");
+    eventTarget.textContent = "Undo";
   }
 }
 
