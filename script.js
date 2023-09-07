@@ -28,7 +28,7 @@ function deleteOrCompleteTask(event) {
     eventTarget.classList.remove("undo");
     eventTarget.classList.add("done");
     eventTarget.textContent = "Done";
-    eventTarget.closest("li > p").classList.remove("completed");
+    eventTarget.closest("li").querySelector("p").classList.remove("completed");
 
   } else {
     eventTarget.closest("li").remove();
