@@ -23,6 +23,10 @@ function deleteOrCompleteTask(event) {
     eventTarget.classList.remove("done");
     eventTarget.classList.add("undo");
     eventTarget.textContent = "Undo";
+  } else if (eventTarget.textContent === "Undo") {
+    eventTarget.classList.remove("undo");
+    eventTarget.classList.add("done");
+    eventTarget.textContent = "Done";
   }
 }
 
